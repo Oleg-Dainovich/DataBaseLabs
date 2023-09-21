@@ -30,64 +30,64 @@
 
 ## Сущности:
 ### 1. Пользователь
-- UserId
-- Username
-- Email
-- PasswordHash
-- CreatedAt
-- UpdatedAt
+- Id INT NOT NULL, PK
+- Username, TEXT NOT NULL
+- Email TEXT NOT NULL
+- PasswordHash TEXT NOT NULL
+- CreatedAt DATE
+- UpdatedAt DATE
 ### 2. Аккаунт
-- AccountId
-- UserId
-- Avatar
-- Bio
-- CreatedAt
-- UpdatedAt
+- Id INT NOT NULL, PK
+- UserId INT NOT NULL, FK -> user
+- Avatar PICTURE
+- Bio TEXT
+- CreatedAt DATE
+- UpdatedAt DATE
 ### 3. Исполнитель
-- ArtistId
-- Name
-- Avatar
-- Bio
+- Id INT NOT NULL, PK
+- Name TEXT NOT NULL
+- Avatar PICTURE
+- Bio TEXT 
 ### 4. Платная подписка
-- SubscriptionId
-- UserId
-- StartDate
-- EndDate
+- Id INT NOT NULL, PK
+- AccountId INT NOT NULL, FK -> account
+- StartDate DATE
+- EndDate DATE
 ### 5. Плейлист
-- PlaylistId
-- UserId
-- Name
-- Duration
-- CreatedAt
-- UpdatedAt
+- Id INT NOT NULL, PK
+- AccountId INT NOT NULL, FK -> account
+- Name TEXT NOT NULL
+- Duration TIME NOT NULL
+- CreatedAt DATE
+- UpdatedAt DATE
 ### 6. Альбом
-- AlbumId
-- Name
-- ArtistId
-- ReleaseDate
-- Duration
-- Cover
+- Id INT NOT NULL, PK
+- Name TEXT NOT NULL
+- ArtistId INT NOT NULL, FK -> artist
+- ReleaseDate DATE
+- Duration TIME NOT NULL
+- Cover PICTURE
 ### 7. Песня
-- SongId
-- Name
-- ArtistId
-- AlbumId
-- GenreId
-- Duration
-- Text
-- ReleaseDate
+- Id INT NOT NULL, PK
+- Name TEXT NOT NULL
+- ArtistId INT NOT NULL, FK -> artist
+- AlbumId INT NOT NULL, FK -> album
+- GenreId INT NOT NULL, FK -> genre
+- Duration TIME NOT NULL
+- Text TEXT NOT NULL
+- ReleaseDate DATE
 ### 8. Жанр
-- GenreId
-- Name
-- Description
+- Id INT NOT NULL, PK
+- Name TEXT NOT NULL
+- Description TEXT 
 ### 9. Недавно прослушанное
-- RecentlyListenedId
-- UserId
-- EntityId
-- EntityType
+- Id INT NOT NULL, PK
+- AccountId INT NOT NULL, FK -> account
+- EntityId INT NOT NULL, FK -> song / playlist / album
+- EntityType ENTITY NOT NULL
 ### 10. Уведомление
-- NotificationId
-- UserId
-- Message
-- SentAt
-- SeenAt
+- Id INT NOT NULL, PK
+- AccountId INT NOT NULL, FK -> account
+- Message TEXT NOT NULL
+- SentAt DATE
+- SeenAt DATE
