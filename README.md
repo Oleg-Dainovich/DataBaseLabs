@@ -39,14 +39,14 @@
 ### 2. Аккаунт
 - Id INT NOT NULL, PK
 - UserId INT NOT NULL, FK -> user
-- Avatar PICTURE
+- Avatar PATH
 - Bio TEXT
 - CreatedAt DATE
 - UpdatedAt DATE
 ### 3. Исполнитель
 - Id INT NOT NULL, PK
 - Name TEXT NOT NULL
-- Avatar PICTURE
+- Avatar PATH
 - Bio TEXT 
 ### 4. Платная подписка
 - Id INT NOT NULL, PK
@@ -66,7 +66,7 @@
 - ArtistId INT NOT NULL, FK -> artist
 - ReleaseDate DATE
 - Duration TIME NOT NULL
-- Cover PICTURE
+- Cover PATH
 ### 7. Песня
 - Id INT NOT NULL, PK
 - Name TEXT NOT NULL
